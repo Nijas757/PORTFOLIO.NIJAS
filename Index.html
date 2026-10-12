@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NIJAS | Modeling Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f7f4;
+    color: #171715;
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #77756f;
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+    padding: 50px 0;
+}
+
+.hero h1 {
+    font-size: clamp(75px, 12vw, 155px);
+    letter-spacing: -10px;
+    line-height: 0.9;
+    margin: 25px 0;
+}
+
+.hero h3 {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #77756f;
+    line-height: 1.8;
+    max-width: 380px;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 650px;
+    background: #e7e4dd;
+    overflow: hidden;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 24px;
+    background: #171715;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-bottom: 8px;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #171715;
+    border: 1px solid #171715;
+    margin-left: 8px;
+}
+
+/* COMMON SECTIONS */
+
+section.content-section {
+    padding: 90px 0;
+    border-top: 1px solid #dedbd4;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: clamp(42px, 6vw, 72px);
+    letter-spacing: -4px;
+    margin-top: 12px;
+}
+
+.section-heading .note {
+    color: #77756f;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 260px;
+}
+
+/* LOOKS */
+
+.looks-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 16px;
+}
+
+.look-main,
+.look-small {
+    background: #e7e4dd;
+    overflow: hidden;
+}
+
+.look-main {
+    height: 650px;
+}
+
+.looks-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    min-height: 650px;
+}
+
+.look-small {
+    min-height: 0;
+}
+
+.look-main img,
+.look-small img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s;
+}
+
+.look-main:hover img,
+.look-small:hover img {
+    transform: scale(1.03);
+}
+
+/* PHOTO GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    background: #e7e4dd;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px 15px 15px;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+}
+
+/* REELS */
+
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.reel-card {
+    min-width: 0;
+}
+
+.reel-card video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    display: block;
+    background: #e7e4dd;
+    object-fit: cover;
+}
+
+.reel-title {
+    margin-top: 15px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.reel-subtitle {
+    color: #77756f;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: #171715;
+    color: white;
+    padding: 75px 0 25px;
+}
+
+.contact h2 {
+    font-size: clamp(45px, 7vw, 80px);
+    letter-spacing: -4px;
+    margin: 15px 0;
+}
+
+.contact-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.contact-details a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 65px;
+    padding-top: 20px;
+    border-top: 1px solid #45443f;
+    color: #b8b5ae;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 760px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 0 55px;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(75px, 18vw, 125px);
+        letter-spacing: -6px;
+    }
+
+    .hero-image {
+        height: auto;
+        aspect-ratio: 4 / 5;
+        min-height: 0;
+    }
+
+    section.content-section {
+        padding: 60px 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        letter-spacing: -2px;
+    }
+
+    .section-heading .note {
+        margin-top: 15px;
+    }
+
+    .looks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .look-main {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    .looks-side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+        min-height: 0;
+    }
+
+    .look-small {
+        aspect-ratio: 3 / 4;
+    }
+
+    .look-main img,
+    .look-small img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .reels-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 12px;
+    }
+
+    .reel-card:last-child {
+        width: calc(50% - 6px);
+        grid-column: 1 / -1;
+    }
+
+    .contact-layout {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn {
+        padding: 14px 16px;
+        font-size: 10px;
+    }
+
+    .btn-outline {
+        margin-left: 3px;
+    }
+
+    .hero h1 {
+        letter-spacing: -5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO / HOME -->
+
+<header class="container hero" id="home">
+
+    <div class="hero-copy">
+        <p class="eyebrow">Portfolio · Coimbatore, India</p>
+
+        <h1>NIJAS</h1>
+
+        <h3>Modeling Portfolio</h3>
+
+        <p class="description">
+            Fashion · Editorial · Ramp Shows<br>
+            A collection of my looks, shoots, and on-camera work.
+        </p>
+
+        <a href="#looks" class="btn">Explore Portfolio ↓</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="./pics/l.jpg.jpeg"
+            alt="Nijas modeling portrait"
+        >
+    </div>
+
+</header>
+
+<main>
+
+<!-- 01 / LOOKS -->
+
+<section class="content-section" id="looks">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">01 / Selected portraits</p>
+                <h2>Looks</h2>
+            </div>
+
+            <p class="note">
+                A selection of portraits, poses, and personal style.
+            </p>
+        </div>
+
+        <div class="looks-grid">
+
+            <div class="look-main">
+                <img
+                    src="./pics/WhatsApp Image 2026-10-12 at 5.16.45 PM.jpeg"
+                    alt="Nijas fashion portrait"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="looks-side">
+
+                <div class="look-small">
+                    <img
+                        src="./pics/IMG_1618.JPG.jpeg"
+                        alt="Nijas close-up portrait"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="look-small">
+                    <img
+                        src="./pics/look.jpg.jpeg"
+                        alt="Nijas styled portrait"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 02 / PHOTO GALLERY -->
+
+<section class="content-section" id="gallery">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">02 / Frames & moments</p>
+                <h2>Photo Gallery</h2>
+            </div>
+
+            <p class="note">
+                Fashion, casual, portraits, and ethnic looks.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/t.jpg.jpeg"
+                    alt="Editorial look"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">Editorial</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/mahi.jpg.jpeg"
+                    alt="Casual look"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">Casual</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/out.jpg.jpeg"
+                    alt="Portrait look"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">Portrait</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/ramp.jpg.jpeg"
+                    alt="Fashion and ramp look"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">Fashion</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/ko.jpg.jpeg"
+                    alt="Ethnic look"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">Ethnic</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="./pics/WhatsApp Image 2026-10-12 at 5.16.45 PM(1).jpeg"
+                    alt="On-set photograph"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">On Set</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 03 / REELS -->
+
+<section class="content-section" id="reels">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">03 / Video work</p>
+                <h2>Reels</h2>
+            </div>
+
+            <p class="note">
+                Selected video work and featured projects.
+            </p>
+        </div>
+
+        <div class="reels-grid">
+
+            <article class="reel-card">
+                <video controls playsinline preload="metadata">
+                    <source src="./pics/red.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+
+                <h3 class="reel-title">RED TAXI</h3>
+                <p class="reel-subtitle">Featured Reel</p>
+            </article>
+
+            <article class="reel-card">
+                <video controls playsinline preload="metadata">
+                    <source src="./pics/mayil.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+
+                <h3 class="reel-title">MAYIL MARK</h3>
+                <p class="reel-subtitle">Featured Reel</p>
+            </article>
+
+            <article class="reel-card">
+                <video controls playsinline preload="metadata">
+                    <source src="./pics/rr..mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+
+                <h3 class="reel-title">RR HOUSE</h3>
+                <p class="reel-subtitle">Featured Reel</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- CONTACT -->
+
+<footer class="contact" id="contact">
+    <div class="container">
+
+        <div class="contact-layout">
+
+            <div>
+                <p class="eyebrow">Bookings & collaborations</p>
+                <h2>Let's work<br>together.</h2>
+            </div>
+
+            <div class="contact-details">
+                <a href="tel:+916385204964">
+                    +91 63852 04964
+                </a>
+
+                <a href="mailto:nijasnijas757@gmail.com">
+                    nijasnijas757@gmail.com
+                </a>
+
+                <span>Coimbatore, Tamil Nadu</span>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> NIJAS</span>
+            <span>Modeling Portfolio</span>
+
+            <a href="#home" style="color:inherit;text-decoration:none">
+                Back to top ↑
+            </a>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+
+```
